@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0b">
+  <meta name="description" content="StudyGlass — اختباراتك ومهامك في تقويم واحد، بتصميم زجاجي أنيق ومزامنة بين الأجهزة.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="backdrop-glow glow-1" aria-hidden="true"></div><div class="backdrop-glow glow-2" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand" aria-label="StudyGlass">
+        <div class="brand-logo"><div class="logo-calendar"><span></span><i></i><b></b></div></div>
+        <div class="brand-type"><strong>Study<span>Glass</span></strong><small>YOUR PERSONAL PLANNER</small></div>
+      </div>
+      <div class="topbar-actions">
+        <span class="sync-pill" id="sync-pill" title="حالة حفظ البيانات"><span class="sync-dot"></span><span id="sync-text">حفظ محلي</span></span>
+        <button class="account-btn" id="account-btn" type="button"><span class="account-avatar">◉</span><span id="account-label">تسجيل الدخول</span></button>
+        <button class="btn btn-primary top-add" id="add-top" type="button"><span class="plus">＋</span> إضافة جديد</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> <span>STAY AHEAD. STAY READY.</span></div>
+          <h1>كل يوم، <em>تحت السيطرة.</em></h1>
+          <p>اختباراتك، واجباتك، ومهامك اليومية — كلها في تقويم واحد مرتب وواضح.</p>
+          <div class="hero-actions"><button class="btn btn-primary hero-add" id="add-hero" type="button"><span class="plus">＋</span> أضف اختبار أو مهمة</button><span class="hero-date" id="hero-date"></span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-1"></div><div class="orb orb-2"></div>
+          <div class="floating-tile tile-back"><span class="tiny-eyebrow">NEXT UP</span><span class="tile-lines"><i></i><i></i></span></div>
+          <div class="floating-tile tile-front"><span class="card-mini-top"><span class="square-icon">▦</span><small>YOUR SCHEDULE</small></span><strong id="hero-day-number">25</strong><span id="hero-month-label">OCTOBER 2026</span><div class="mini-rows"><i></i><i></i><i></i></div></div>
+        </div>
+      </section>
+
+      <section class="stat-grid" aria-label="ملخص الخطة">
+        <article class="stat glass"><div class="stat-head"><span>مواعيد هذا الشهر</span><span class="stat-symbol">▦</span></div><div class="stat-value" id="stat-month">0</div><p>اختبارات ومهام في التقويم</p></article>
+        <article class="stat glass"><div class="stat-head"><span>اختبارات قادمة</span><span class="stat-symbol">◇</span></div><div class="stat-value" id="stat-exams">0</div><p>استعد لها قبل موعدها</p></article>
+        <article class="stat glass"><div class="stat-head"><span>مهام متبقية</span><span class="stat-symbol">☰</span></div><div class="stat-value" id="stat-tasks">0</div><p>لسه ما تم إنجازها</p></article>
+        <article class="stat glass"><div class="stat-head"><span>تم إنجازها</span><span class="stat-symbol">✓</span></div><div class="stat-value" id="stat-done">0</div><p>كل إنجاز يستاهل</p></article>
+      </section>
+
+      <section class="workspace">
+        <section class="calendar-panel glass" aria-label="التقويم الشهري">
+          <div class="panel-heading">
+            <div class="heading-copy"><div class="overline">YOUR CALENDAR / التقويم</div><h2>جدولك الشهري</h2></div>
+            <button class="btn btn-soft add-inline" type="button" id="add-calendar"><span>＋</span> جديد</button>
+          </div>
+          <div class="calendar-toolbar">
+            <div class="month-nav"><button class="nav-arrow" type="button" id="prev-month" aria-label="الشهر السابق">❯</button><h3 id="month-title">أكتوبر 2026</h3><button class="nav-arrow" type="button" id="next-month" aria-label="الشهر التالي">❮</button></div>
+            <div class="toolbar-left"><button class="today-button" type="button" id="today-btn">اليوم</button><div class="filters" role="group" aria-label="تصفية المواعيد"><button data-filter="all" class="filter active" aria-pressed="true">الكل</button><button data-filter="exam" class="filter" aria-pressed="false">اختبارات</button><button data-filter="task" class="filter" aria-pressed="false">مهام</button></div></div>
+          </div>
+          <div class="weekdays" aria-hidden="true"><span>الأحد</span><span>الإثنين</span><span>الثلاثاء</span><span>الأربعاء</span><span>الخميس</span><span>الجمعة</span><span>السبت</span></div>
+          <div id="calendar-grid" class="calendar-grid"></div>
+          <div class="calendar-footer"><span><i class="legend-mark exam"></i> اختبار</span><span><i class="legend-mark task"></i> مهمة</span><span class="footer-hint">اضغط على أي يوم لعرض التفاصيل</span></div>
+        </section>
+
+        <aside class="side-panels">
+          <section class="day-panel glass" id="day-panel" aria-label="تفاصيل اليوم المحدد">
+            <div class="side-top"><span class="overline">DAY DETAILS / تفاصيل اليوم</span><button class="icon-button" id="add-day" type="button" title="إضافة لهذا اليوم" aria-label="إضافة لهذا اليوم">＋</button></div>
+            <div class="selected-header"><div class="selected-date-number" id="selected-number">25</div><div class="selected-date-text"><h3 id="selected-day-name">الأحد</h3><p id="selected-long-date">25 أكتوبر 2026</p></div></div>
+            <div class="selected-divider"></div>
+            <div class="selected-list" id="selected-list"></div>
+          </section>
+          <section class="upcoming-panel glass" aria-label="المواعيد القادمة">
+            <div class="upcoming-head"><div><span class="overline">WHAT'S NEXT</span><h3>القادم في جدولك</h3></div><span class="upcoming-bubble" id="upcoming-count">0</span></div>
+            <div class="upcoming-list" id="upcoming-list"></div>
+          </section>
+          <div class="privacy-tip"><span class="privacy-symbol">⌁</span><span id="privacy-text">سجّل الدخول لتظهر مواعيدك من أي تلفون. بدون حساب، الحفظ على هذا الجهاز فقط.</span></div>
+        </aside>
+      </section>
+    </main>
+    <footer class="site-footer"><span>STUDYGLASS © <span id="year"></span></span><span>Plan your days. Own your time.</span></footer>
+  </div>
+  <button class="mobile-add" id="add-mobile" type="button" aria-label="إضافة اختبار أو مهمة">＋</button>
+
+  <div class="dialog-layer hidden" id="item-layer" role="presentation"><div class="overlay" data-close="item"></div><section class="dialog glass" role="dialog" aria-modal="true" aria-labelledby="item-title">
+    <div class="dialog-top"><div><div class="overline">CREATE / EDIT</div><h2 id="item-title">إضافة موعد جديد</h2></div><button class="close-button" id="close-item" type="button" aria-label="إغلاق">×</button></div>
+    <form id="item-form">
+      <div class="type-switch" role="group" aria-label="نوع الموعد"><button type="button" class="type-option active" data-type="exam" aria-pressed="true"><span class="type-symbol">◇</span> اختبار</button><button type="button" class="type-option" data-type="task" aria-pressed="false"><span class="type-symbol">☰</span> مهمة</button></div>
+      <label class="field"><span>العنوان <b>*</b></span><input id="field-title" name="title" type="text" maxlength="120" required placeholder="مثلاً: اختبار الرياضيات" autocomplete="off"></label>
+      <div class="field-row"><label class="field"><span>التاريخ <b>*</b></span><input id="field-date" name="date" type="date" required></label><label class="field"><span>الساعة (اختياري)</span><input id="field-time" name="time" type="time"></label></div>
+      <label class="field"><span>المادة / التصنيف (اختياري)</span><input id="field-subject" name="subject" type="text" maxlength="70" placeholder="مثلاً: رياضيات أو مشروع الجامعة"></label>
+      <label class="field"><span>ملاحظات (اختياري)</span><textarea id="field-notes" name="notes" rows="3" maxlength="1200" placeholder="المطلوب، الصفحات، تفاصيل المذاكرة..."></textarea></label>
+      <label class="completion"><input type="checkbox" id="field-completed"><span class="fake-checkbox">✓</span><span>تم الإنجاز</span></label>
+      <div class="dialog-actions"><button type="button" id="delete-item" class="danger-text hidden">حذف الموعد</button><span class="actions-spacer"></span><button type="button" class="btn btn-soft" id="cancel-item">إلغاء</button><button type="submit" class="btn btn-primary" id="save-item">حفظ الموعد</button></div>
+    </form>
+  </section></div>
+
+  <div class="dialog-layer hidden" id="auth-layer" role="presentation"><div class="overlay" data-close="auth"></div><section class="dialog auth-dialog glass" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="dialog-top"><div><div class="overline">CLOUD SYNC / المزامنة السحابية</div><h2 id="auth-title">حساب StudyGlass</h2></div><button class="close-button" id="close-auth" type="button" aria-label="إغلاق">×</button></div>
+    <div id="auth-signed-out"><p class="auth-description">بنفس البريد وكلمة المرور تظهر اختباراتك ومهامك على كل أجهزتك.</p><div class="auth-tabs" role="group"><button type="button" data-auth="login" class="active" aria-pressed="true">تسجيل الدخول</button><button type="button" data-auth="signup" aria-pressed="false">إنشاء حساب</button></div>
+      <form id="auth-form"><label class="field"><span>البريد الإلكتروني</span><input id="auth-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com" dir="ltr"></label><label class="field"><span>كلمة المرور</span><input id="auth-password" name="password" type="password" minlength="6" autocomplete="current-password" required placeholder="6 أحرف على الأقل" dir="ltr"></label><button class="btn btn-primary auth-submit" id="auth-submit" type="submit">تسجيل الدخول</button></form>
+      <p class="auth-notice" id="auth-notice">قد تحتاج إلى تأكيد بريدك الإلكتروني عند إنشاء الحساب.</p>
+    </div>
+    <div id="auth-signed-in" class="hidden"><div class="signed-badge">✓ <span>مسجّل دخول — مزامنة سحابية</span></div><p class="signed-email" id="signed-email"></p><p class="auth-description">تُحفظ المواعيد في مشروع Supabase، وتظهر من أي جهاز بعد تسجيل الدخول بنفس الحساب.</p><button class="btn btn-soft auth-submit hidden" id="import-local" type="button">نقل المواعيد المحلية إلى حسابك</button><button class="btn btn-soft auth-submit" type="button" id="logout-btn">تسجيل الخروج</button></div>
+  </section></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
