@@ -1,7 +1,7 @@
-// Public client config. The publishable key is not a secret.
-// Database row-level security (RLS) keeps each user's records private.
-// Never put a Supabase secret/service_role key in this file.
+// Public client config for the correct Supabase project: Tasks.
+// The publishable key is intended for browser use; row-level security protects user data.
+// Never place a Supabase secret/service_role key in this file.
 window.STUDYGLASS_CONFIG = {
-  supabaseUrl: 'https://beqdnfvajirsqkfmmdqm.supabase.co',
-  supabasePublishableKey: 'sb_publishable_NWgFqbICmm_Pc1edwXutSg_g8BQ5kMH'
+  supabaseUrl: 'https://ozhiklonwyjlerpouglf.supabase.co',
+  supabasePublishableKey: 'sb_publishable_eOjqmYqtPPBjNqkTrJSoRA_dw_3pCl9'
 };
