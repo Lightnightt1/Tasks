@@ -19,7 +19,7 @@
    - ينشئ جدول **planner_items** منفصلًا، ولا يعدل بيانات TradeGlass.
    - يفعل RLS لحماية مواعيد كل مستخدم بحيث لا يصل لبياناته إلا عبر حسابه.
 3. افتح Authentication → URL Configuration → Redirect URLs واضف:
-   `https://nizarkhalid2.github.io/StudyGlass/`
+   `https://lightnightt1.github.io/Tasks/`
    - **لا تحذف** رابط TradeGlass الموجود في Site URL أو Redirect URLs.
    - في حال اخترت مستودعًا باسم آخر، استخدم رابط GitHub Pages المطابق له.
 4. اتأكد أن Authentication → Providers → Email مفعَّل. قد يُطلب تأكيد البريد بعد إنشاء الحساب.
@@ -27,15 +27,17 @@
 
 **لا يمكن اختبار المزامنة مع بياناتك الحقيقية من دون تنفيذ SQL ووجود حساب مسجل.**
 
-## نشره على GitHub Pages (تطبيق مستقل)
+## تحديث النسخة المنشورة على GitHub Pages
 
-1. افتح GitHub وأنشئ مستودعًا جديدًا اسمه `StudyGlass` واضبطه على Public.
-2. فك ضغط الملف ZIP وارفع **جميع الملفات داخل المجلد** إلى جذر المستودع. يجب أن يكون `index.html` في الجذر، وليس داخل مجلد فرعي.
-3. من Settings → Pages اختر Deploy from a branch ثم `main` و`/(root)` واضغط Save.
-4. افتح: `https://nizarkhalid2.github.io/StudyGlass/` بعد اكتمال النشر.
-5. اضغط «تسجيل الدخول» وأنشئ حسابًا أو ادخل بحساب Supabase لديك. إن كانت لديك مواعيد محلية قديمة، يمكنك نقلها إلى السحابة من شاشة الحساب.
+التطبيق منشور على الرابط الذي أرسله المستخدم: `https://lightnightt1.github.io/Tasks/`. لتطبيق تحديث التصميم:
 
-**مهم:** لا ترفع الملفات إلى مستودع `Trade` القديم؛ سيحل StudyGlass محل TradeGlass! أنشئ مستودعًا مستقلًا.
+1. افتح مستودع GitHub الحالي: https://github.com/lightnightt1/Tasks
+2. فك ضغط ملف التحديث `StudyGlass-Glass-Colors-Update.zip`.
+3. ارفع **كل الملفات الموجودة داخل ZIP** إلى جذر المستودع، ووافق على استبدال الملفات القديمة. يجب أن يبقى `index.html` في الجذر.
+4. اضغط **Commit changes** وانتظر اكتمال نشر GitHub Pages، ثم حدّث التطبيق.
+5. رابط التطبيق: `https://lightnightt1.github.io/Tasks/`.
+
+هذا التحديث يغيّر التصميم فقط؛ لا تحتاج إلى إعادة تشغيل `schema.sql` أو إنشاء مشروع Supabase جديد. تبقى بيانات Supabase العامة نفسها. لا ترفع أي Secret Key أو `service_role`.
 
 ## التشغيل المحلي
 

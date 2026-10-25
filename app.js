@@ -216,8 +216,8 @@
       empty.append(add); list.append(empty); return;
     }
     for (const item of dayItems) {
-      const card = dom('div', 'event-card');
-      const glyph = dom('div', `event-kind ${item.item_type}`, item.item_type === 'exam' ? '◇' : '☰');
+      const card = dom('div', 'event-card' + (item.completed ? ' is-completed' : ''));
+      const glyph = dom('div', `event-kind ${item.item_type}${item.completed ? ' completed' : ''}`, item.item_type === 'exam' ? '◇' : '☰');
       const details = dom('div', 'event-detail' + (item.completed ? ' done' : ''));
       details.append(dom('strong', '', item.title));
       details.append(dom('small', '', dateLabel(item)));

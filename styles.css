@@ -5,3 +5,61 @@
 @media(max-width:620px){.app-shell{padding:0 14px}.topbar{height:72px}.brand-logo{width:38px;height:38px;border-radius:12px}.brand-type strong{font-size:20px}.brand-type small{font-size:7px;letter-spacing:1.6px}.topbar-actions{gap:6px}.top-add{display:none}.account-btn{padding:5px 7px;gap:5px;font-size:10px;max-width:135px}.account-avatar{width:25px;height:25px}.sync-pill{padding:8px 9px;font-size:10px}.hero{padding:27px 1px 20px}.eyebrow{font-size:8px}.hero h1{font-size:32px;letter-spacing:-1px;margin:10px 0 6px}.hero-copy>p{font-size:12px;line-height:1.9;margin:6px 0 17px}.hero-actions{gap:11px}.hero-date{font-size:10px}.hero-add{min-height:38px;padding:7px 11px;font-size:11px}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:3px 0 17px}.stat{padding:14px 13px;min-height:124px;border-radius:15px}.stat-head{font-size:11px}.stat-symbol{width:27px;height:27px;font-size:17px}.stat-value{font-size:30px}.stat p{font-size:10px}.calendar-panel{padding:17px 10px 14px;border-radius:18px}.panel-heading{margin-bottom:18px;padding:0 5px}.heading-copy h2{font-size:19px}.overline{font-size:8px}.add-inline{min-height:33px}.calendar-toolbar{flex-direction:column;align-items:stretch;gap:14px;margin-bottom:18px;padding:0 2px}.month-nav{justify-content:space-between}.month-nav h3{min-width:unset;font-size:17px}.toolbar-left{justify-content:space-between;flex-direction:row-reverse}.filters{gap:3px}.filter{font-size:10px;padding:5px 8px}.weekdays,.calendar-grid{gap:3px}.weekdays{margin-bottom:7px}.weekdays span{font-size:9px}.calendar-grid{grid-auto-rows:minmax(73px,auto)}.calendar-day{min-height:73px;border-radius:7px;padding:4px 2px}.day-top{min-height:21px;gap:2px}.day-index{font-size:11px}.date-count{font-size:8px;padding:2px 4px}.calendar-day.is-today .day-index{min-width:20px;height:20px;border-radius:6px}.day-events{gap:3px;margin-top:3px}.mini-event{padding:4px 2px;justify-content:center;gap:2px;border-radius:4px}.mini-event .event-name{display:none}.mini-event .mobile-name{display:inline;font-size:8px;font-weight:600}.event-dot{width:4px;height:4px;min-width:4px}.more-event{font-size:8px}.calendar-footer{font-size:10px;gap:14px;margin:15px 4px 2px}.footer-hint{display:none!important}.side-panels{grid-template-columns:1fr;gap:13px}.day-panel,.upcoming-panel{padding:18px 16px;border-radius:18px}.selected-list{max-height:420px;min-height:115px}.privacy-tip{font-size:10px;padding-bottom:0}.site-footer{margin-top:17px;padding:18px 0 84px;font-size:9px}.site-footer span:last-child{display:none}.mobile-add{display:grid;place-items:center;position:fixed;bottom:calc(env(safe-area-inset-bottom) + 22px);left:19px;z-index:20;width:53px;height:53px;border-radius:17px;border:1px solid #fff;background:linear-gradient(135deg,#fff,#bcbcc1);color:#111;box-shadow:0 13px 34px #000b,0 6px 20px #ffffff20;font:300 34px Inter,sans-serif;padding:0}.dialog-layer{padding:11px;align-items:center}.dialog{border-radius:17px;padding:18px 16px;max-height:94dvh}.dialog-top{margin-bottom:15px}.dialog-top h2{font-size:21px}.field-row{gap:9px}.field input,.field textarea{font-size:12px}.toast{bottom:calc(env(safe-area-inset-bottom) + 84px)}}
 @media(max-width:370px){.app-shell{padding:0 10px}.brand-type strong{font-size:18px}.brand-type small{font-size:6px}.sync-pill{font-size:0;padding:8px;min-height:30px}.sync-dot{width:8px;height:8px}.account-btn{max-width:125px}.mini-event .mobile-name{font-size:7px}.filter{font-size:9px;padding:5px}.calendar-grid{grid-auto-rows:minmax(68px,auto)}.calendar-day{min-height:68px}.day-events{margin-top:2px}.mini-event{padding:3px 1px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* StudyGlass light-glass polish: brighter frosted surfaces, restrained cool tints, red completion strike. */
+:root{
+  --glass:rgba(34,36,42,.68);
+  --edge:rgba(255,255,255,.16);
+  --edge-bright:rgba(255,255,255,.32);
+  --done-red:#ff6673;
+  --ice-tint:rgba(151,194,255,.11);
+  --lilac-tint:rgba(196,177,255,.10);
+}
+body{
+  background:
+    radial-gradient(ellipse 64% 44% at 88% -8%,rgba(170,184,255,.105),transparent 74%),
+    radial-gradient(ellipse 52% 48% at 2% 70%,rgba(143,190,255,.075),transparent 72%),
+    radial-gradient(ellipse 44% 35% at 70% 105%,rgba(255,255,255,.045),transparent 72%),
+    linear-gradient(140deg,#0a0b0f,#111216 48%,#090a0d);
+}
+.glass{
+  background:linear-gradient(142deg,rgba(255,255,255,.17) 0%,rgba(255,255,255,.075) 18%,rgba(58,61,69,.48) 52%,rgba(20,21,25,.69) 100%);
+  border-color:rgba(255,255,255,.19);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.23),0 20px 65px rgba(0,0,0,.34);
+}
+.brand-logo,.stat-symbol,.nav-arrow,.today-button,.icon-button,.filters,.date-count,.upcoming-date,.event-card,.calendar-day,.mini-event,.type-switch,.auth-tabs{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055);
+}
+.stat{background:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.035) 55%,rgba(145,160,190,.035));border-color:rgba(255,255,255,.18)}
+.stat-symbol{background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.055));border-color:rgba(255,255,255,.21)}
+.calendar-day{background:linear-gradient(155deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.14)}
+.calendar-day:hover{background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.055));border-color:rgba(255,255,255,.42)}
+.calendar-day.selected{background:linear-gradient(145deg,rgba(255,255,255,.21),rgba(151,194,255,.055) 55%,rgba(255,255,255,.065));border-color:rgba(255,255,255,.75);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 22px rgba(190,205,255,.08)}
+.date-count{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.13);color:#f5f5f8}
+.mini-event.exam{background:linear-gradient(110deg,rgba(196,177,255,.13),rgba(255,255,255,.055));border-color:rgba(209,194,255,.23)}
+.mini-event.task{background:linear-gradient(110deg,rgba(151,194,255,.105),rgba(255,255,255,.04));border-color:rgba(173,208,255,.16)}
+.mini-event.exam .event-dot{background:#d9ccff;box-shadow:0 0 8px rgba(196,177,255,.2)}
+.mini-event.task .event-dot{background:#b9d9ff;box-shadow:0 0 8px rgba(151,194,255,.18)}
+.event-kind.exam{color:#e1d8ff;background:rgba(196,177,255,.13);border:1px solid rgba(209,194,255,.14)}
+.event-kind.task{color:#c8e3ff;background:rgba(151,194,255,.105);border:1px solid rgba(173,208,255,.12)}
+.event-card{background:linear-gradient(130deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.15)}
+.event-card:hover{background:linear-gradient(130deg,rgba(255,255,255,.13),rgba(255,255,255,.045));border-color:rgba(255,255,255,.28)}
+.upcoming-date{background:linear-gradient(145deg,rgba(255,255,255,.19),rgba(255,255,255,.055));border-color:rgba(255,255,255,.24)}
+.upcoming-type{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.23)}
+.filter.active,.type-option.active,.auth-tabs button.active{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(151,194,255,.07));border-color:rgba(255,255,255,.35)}
+.btn-soft,.sync-pill,.account-btn{background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));border-color:rgba(255,255,255,.2)}
+.field input,.field textarea{background:rgba(9,11,16,.64);border-color:rgba(255,255,255,.24);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.field input:focus,.field textarea:focus{border-color:rgba(209,224,255,.72);box-shadow:0 0 0 3px rgba(151,194,255,.08)}
+/* Completed items remain legible; only the strike and completion control use red. */
+.mini-event.completed{opacity:1;background:linear-gradient(110deg,rgba(255,102,115,.10),rgba(255,255,255,.035));border-color:rgba(255,102,115,.26);}
+.mini-event.completed .event-name,.mini-event.completed .mobile-name{color:#e5c9cc;text-decoration-line:line-through;text-decoration-color:var(--done-red);text-decoration-thickness:1.7px;}
+.mini-event.completed .event-dot{background:var(--done-red);box-shadow:0 0 8px rgba(255,102,115,.28)}
+.event-card.is-completed{background:linear-gradient(130deg,rgba(255,102,115,.075),rgba(255,255,255,.035));border-color:rgba(255,102,115,.2)}
+.event-kind.completed{color:#ff9aa2;background:rgba(255,102,115,.10);border-color:rgba(255,102,115,.18)}
+.event-detail.done strong{color:#e7c5c8;text-decoration-line:line-through;text-decoration-color:var(--done-red);text-decoration-thickness:2px;text-decoration-skip-ink:none}
+.check-btn.checked{background:rgba(255,102,115,.14);color:#ff8e98;border-color:rgba(255,102,115,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.check-btn.checked:hover{background:rgba(255,102,115,.22)}
+.completion input:checked+.fake-checkbox{background:rgba(255,102,115,.18);color:#ff8e98;border-color:rgba(255,102,115,.6)}
+.empty-state .empty-icon{color:#c9d9f5}
+@media(prefers-reduced-motion:no-preference){.glass,.calendar-day,.event-card,.mini-event,.btn{transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}}
+
